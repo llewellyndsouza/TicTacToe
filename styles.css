@@ -1,4 +1,26 @@
 html {
-    margin: 0px;
-    padding: 0px;
+  margin: 0px;
+  padding: 0px;
+}
+body {
+  height: 90vh;
+  width: 90vw;
+  text-align: center;
+}
+
+.container {
+  width: 300px;
+  height: 300px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  align-items: center;
+  justify-items: center;
+}
+
+#cell {
+    border: solid black 2px;
+    height: 100px;
+    width: 100px;
+    display: grid;
 }
