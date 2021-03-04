@@ -18,9 +18,25 @@ body {
   justify-items: center;
 }
 
-#cell {
+.cell {
     border: solid black 2px;
+    background-color: burlywood;
     height: 100px;
     width: 100px;
-    display: grid;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 5em;
+}
+
+.x {
+  background-color: lightblue;
+}
+
+.o {
+  background-color: lightgreen;
+}
+
+.cell:hover {
+  background-color: antiquewhite;
 }
