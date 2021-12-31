@@ -1,42 +1,49 @@
-html {
-  margin: 0px;
-  padding: 0px;
-}
-body {
-  height: 90vh;
-  width: 90vw;
+* {
+  box-sizing: border-box;
   text-align: center;
 }
 
-.container {
-  width: 300px;
-  height: 300px;
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.mainContainer {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(3, 1fr);
+  height: 100vh;
+  grid-template-rows: max-content auto max-content;
+  row-gap: 10px;
+}
+
+header {
+  grid-row: 1;
+}
+
+footer {
+  grid-row: 3;
+}
+
+.gameContent {
+  grid-row: 2;
+}
+
+.gameGridContainer {
+  display: grid;
+  grid-template-columns: max-content max-content max-content;
+  grid-template-rows: max-content max-content max-content;
+  justify-content: center;
+  align-content: center;
+}
+
+.gameGridCell {
+  place-self: center;
+}
+
+.cellContent {
+  display: flex;
   align-items: center;
-  justify-items: center;
-}
-
-.cell {
-    border: solid black 2px;
-    background-color: burlywood;
-    height: 100px;
-    width: 100px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 5em;
-}
-
-.x {
-  background-color: lightblue;
-}
-
-.o {
-  background-color: lightgreen;
-}
-
-.cell:hover {
-  background-color: antiquewhite;
+  justify-content: center;
+  padding: 30px;
+  font-size: x-large;
 }
