@@ -149,4 +149,5 @@ let turn = 1;
 //
 Game.newGame(p1, p2);
 
-DisplayController.init();
+// Render the game on the page
+ReactDOM.render(<TicTacGame />, document.querySelector('#reactContainer'));
