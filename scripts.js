@@ -122,19 +122,20 @@ const Game = (function () {
     Gameboard.resetGame();
   };
 
-  const PlayerMove = function (cell) {
-    let index = cell.getAttribute("key");
-    if (turn == 1) {
-      cell.className = cell.className + " x";
-      cell.innerText = "X";
-      turn = 2;
-      Gameboard.addMove("1", index);
-    } else {
-      cell.className = cell.className + " o";
-      cell.innerText = "O";
-      turn = 1;
-      Gameboard.addMove("2", index);
-    }
+const Game = () => {
+  const [score, setScore] = React.useState({ user: 0, player: 0 });
+  return (
+    <div>
+      <Scoreboard score={score} />
+      <div className="gameGridContainer">
+        <GameGridContent
+          setWinner={(p) => {
+            console.log(p, 'is the winner');
+          }}
+        />
+      </div>
+    </div>
+  );
   };
 
 const TicTacGame = () => (
