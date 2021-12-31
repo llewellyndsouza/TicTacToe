@@ -114,12 +114,20 @@ const Player = (name) => {
   };
 };
 
-const Game = (function () {
-  const newGame = function (
-    player1 = Player("test p1"),
-    player2 = Player("test p2")
-  ) {
-    Gameboard.resetGame();
+const GameGridContent = ({ setWinner }) => {
+  const [gameData, setGameData] = React.useState([{}, {}, {}, {}, {}, {}, {}, {}, {}]);
+  return gameData.map((cell, idx) => (
+    <div
+      key={idx}
+      className="gameGridCell"
+      onClick={() => {
+        console.log('Clicked', idx);
+        setWinner('user');
+      }}
+    >
+      <div className="cellContent">{cell.value ? cell.value : '-'}</div>
+    </div>
+  ));
   };
 
 const Game = () => {
