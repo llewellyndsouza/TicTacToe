@@ -137,17 +137,13 @@ const Game = (function () {
     }
   };
 
-  return { newGame, PlayerMove };
-})();
-
-//
-let p1 = Player("player1");
-let p2 = Player("player2");
-
-let turn = 1;
-
-//
-Game.newGame(p1, p2);
+const TicTacGame = () => (
+  <div className="mainContainer">
+    <Header />
+    <Game />
+    <Footer />
+  </div>
+);
 
 // Render the game on the page
 ReactDOM.render(<TicTacGame />, document.querySelector('#reactContainer'));
