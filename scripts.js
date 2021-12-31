@@ -10,88 +10,11 @@ const Footer = () => (
   </footer>
 );
 
-  function checkGame() {
-    // check the board for a winner
-    console.log(`checking the game for a winner`);
-    let win = false;
-    winningLines.forEach((win) => {
-      if (
-        set1.includes(win[0], 0) &&
-        set1.includes(win[1], 0) &&
-        set1.includes(win[2], 0)
-      ) {
-        console.log("winner player 1");
-        win=true;
-        return; //end game here
-      }
-      if(win) return;
-    });
-    winningLines.forEach((win) => {
-      if (
-        set2.includes(win[0]) &&
-        set2.includes(win[1]) &&
-        set2.includes(win[2])
-      ) {
-        console.log("winner player 2");
-        win=true;
-        return; //end game here
-      }
-      if(win) return;
-    });
-    //if end of game - draw
-    if(set2.length+set1.length==9) console.log('game draw');
-  }
-
-  return {
-    resetGame,
-    addMove,
-  };
-})();
-
-const DisplayController = (function () {
-  //Generates the tiles
-  function generateGrid() {
-    let container = document.getElementsByClassName("container")[0];
-    for (let i = 0; i < 9; i++) {
-      let tile = document.createElement("div");
-      tile.className = "cell";
-      tile.setAttribute("key", i);
-      container.appendChild(tile);
-    }
-  }
-
-  function loadButtons() {
-    document.querySelectorAll(".cell").forEach((item) => {
-      item.addEventListener("click", function test(event) {
-        Game.PlayerMove(event.target);
-        item.removeEventListener("click", test);
-      });
-    });
-  }
-
-  const init = () => {
-    generateGrid();
-    loadButtons();
-  };
-
-  return { init };
-})();
-
-const Player = (name) => {
-  let score = 0;
-  let PlayerName = name;
-  const getName = () => PlayerName;
-  const getScore = () => score;
-  const wins = function () {
-    score++;
-  };
-
-  return {
-    getName,
-    wins,
-    getScore,
-  };
-};
+const Scoreboard = ({ score }) => (
+  <div>
+    User: {score.user} Player: {score.player}
+  </div>
+);
 
 const GameGridContent = ({ setWinner }) => {
   const [gameData, setGameData] = React.useState([{}, {}, {}, {}, {}, {}, {}, {}, {}]);
@@ -107,7 +30,7 @@ const GameGridContent = ({ setWinner }) => {
       <div className="cellContent">{cell.value ? cell.value : '-'}</div>
     </div>
   ));
-  };
+};
 
 const Game = () => {
   const [score, setScore] = React.useState({ user: 0, player: 0 });
@@ -123,7 +46,7 @@ const Game = () => {
       </div>
     </div>
   );
-  };
+};
 
 const TicTacGame = () => (
   <div className="mainContainer">
