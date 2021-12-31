@@ -1,22 +1,8 @@
-const Gameboard = (function () {
-  let board = [];
-  let set1 = [];
-  let set2 = [];
-  let winningLines = [
-    ["0", "1", "2"],
-    ["3", "4", "5"],
-    ["6", "7", "8"],
-    ["0", "4", "8"],
-    ["2", "4", "6"],
-    ["0", "3", "6"],
-    ["1", "4", "7"],
-    ["2", "5", "8"],
-  ];
-  const resetGame = () => {
-    board = [];
-    set1 = [];
-    set2 = [];
-  };
+const Header = () => (
+  <header>
+    <h1>Welcome to my TicTacGame</h1>
+  </header>
+);
 
 const Footer = () => (
   <footer>
