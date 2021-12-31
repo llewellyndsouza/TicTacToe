@@ -18,18 +18,11 @@ const Gameboard = (function () {
     set2 = [];
   };
 
-  const addMove = (player, index) => {
-    board.push({ player, index });
-    if (player == "1") {
-      set1.push(index);
-      console.log("set1:", set1);
-    } else {
-      set2.push(index);
-      console.log("set2:", set2);
-    }
-    console.log(`current board:`, board);
-    checkGame();
-  };
+const Footer = () => (
+  <footer>
+    <div>Designed and developed my me.</div>
+  </footer>
+);
 
   function checkGame() {
     // check the board for a winner
